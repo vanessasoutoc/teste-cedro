@@ -1,0 +1,7 @@
+<%= bootstrap_form_for @restaurant do |form| %>
+
+<%= form.text_field :name, id: :product_name, label: 'Nome' %>
+
+<%= form.submit 'Salvar', class: 'btn btn-primary pull-right' %>
+
+<% end %>

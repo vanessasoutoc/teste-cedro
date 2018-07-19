@@ -1,0 +1,21 @@
+<section class="content-header">
+    <h1> Novo Restaurante
+        <small></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to 'Restaurantes', restaurants_path %></li>
+        <li class="active"><%= link_to 'Novo Restaurante', new_restaurant_path %></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-body pad">
+                    <%= render 'form', restaurant: @restaurant %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,29 @@
+<section class="content-header">
+    <h1> <%= @restaurant.name %>
+        <small>Cód: <%= @restaurant.id %></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to 'Restaurantes', restaurants_path %></li>
+        <li class="active"><%= link_to 'Novo Restaurante', new_restaurant_path %></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+               <div class="box-header">
+                         <b> Código: </b> <%= @restaurant.id %>
+                    <div class="pull-right">
+                        <%= link_to '', edit_restaurant_path(@restaurant), class: 'glyphicon glyphicon-edit', :style => 'color:#FFD600' %>
+                        <%= link_to '', @restaurant, method: :delete, data: { confirm: 'Tem certeza que deseja desativar o restaurante?' }, :class => 'glyphicon glyphicon-ban-circle', :style => 'color:red' %>
+                    </div>
+               </div>
+                <div class="box-body pad">
+                 <p><b>Nome:  </b>  <%= @restaurant.name %></p>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
