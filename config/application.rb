@@ -7,12 +7,32 @@ require 'rails/all'
 Bundler.require(*Rails.groups)
 
 module TesteCedro
-  class Application < Rails::Application
-    # Initialize configuration defaults for originally generated Rails version.
-    config.load_defaults 5.1
+    class Application < Rails::Application
 
-    # Settings in config/environments/* take precedence over those specified here.
-    # Application configuration should go into files in config/initializers
-    # -- all .rb files in that directory are automatically loaded.
-  end
+        config.generators.javascript_engine = :js
+        config.i18n.default_locale = 'pt-BR'
+        # Initialize configuration defaults for originally generated Rails version.
+        config.load_defaults 5.1
+
+        # Settings in config/environments/* take precedence over those specified here.
+        # Application configuration should go into files in config/initializers
+        # -- all .rb files in that directory are automatically loaded.
+    end
+end
+
+module Api  
+    class Application < Rails::Application
+
+        config.paths.add "app/controllers/api", glob: "**/*.rb"
+        config.autoload_paths += Dir["#{Rails.root}/app/controllers/api/*"]
+
+        config.middleware.use Rack::Cors do
+            allow do
+                origins '*'
+                resource '*', 
+                :headers => :any, :methods => [:get, :post, :options, :create], 
+                :expose  => ['access-token', 'expiry', 'token-type', 'uid', 'client']
+            end
+        end
+    end
 end
