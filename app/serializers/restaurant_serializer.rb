@@ -1,3 +1,4 @@
 class RestaurantSerializer < ActiveModel::Serializer
-  attributes :id, :name, :active
+    #acts_as_paranoid
+    attributes :id, :name, :deleted_at
 end

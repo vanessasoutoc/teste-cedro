@@ -25,7 +25,9 @@ gem "font-awesome-rails"
 # generate documentation
 gem 'grape-swagger'
 gem 'grape-swagger-rails'
+
 # gem paginate
+gem 'will_paginate', '~> 3.1.0'
 gem 'will_paginate-bootstrap'
 
 # bootstrap
