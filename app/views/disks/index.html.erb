@@ -14,6 +14,10 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-body">
+                    <%= form_tag(disks_path, :method => "get", :class => "form-inline pull-right", id: "search-form", style: "margin-right: 2%") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Buscar prato", class: "form-control" %>
+                    <%= button_tag " ", :name => nil, class: "btn btn-default glyphicon glyphicon-search" %>
+                    <% end %>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -26,14 +30,14 @@
                         <tbody>
                             <% @disks.each do |disk| %>
                             <tr>
-     
+
                                 <td><%= disk.restaurant.name %></td>
                                 <td><%= disk.name %></td>
                                 <td><%= disk.price %></td>
                                 <td><%= link_to '', disk, :class => 'glyphicon glyphicon-eye-open' %></td>
                                 <td><%= link_to '', edit_disk_path(disk), :class => 'glyphicon glyphicon-edit', :style => 'color:#FFD600' %></td>
                                 <td><%= link_to '', disk, method: :delete, data: { confirm: 'Tem certeza que deseja desativar o prato?' }, :class => 'glyphicon glyphicon-ban-circle', :style => 'color:red' %></td>
-                         
+
                             </tr>
                             <% end %>
                         </tbody>

@@ -14,6 +14,12 @@
         <div class="col-md-12">
             <div class="box box-primary">
                 <div class="box-body">
+
+                    <%= form_tag(restaurants_path, :method => "get", :class => "form-inline pull-right", id: "search-form", style: "margin-right: 2%") do %>
+                    <%= text_field_tag :search, params[:search], placeholder: "Buscar restaurante", class: "form-control" %>
+                    <%= button_tag " ", :name => nil, class: "btn btn-default glyphicon glyphicon-search" %>
+                    <% end %>
+
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -26,7 +32,7 @@
                             <% @restaurants.each do |restaurant| %>
                             <tr>
                                 <td><%= restaurant.name %></td>
-                     
+
                                 <td><%= link_to '', restaurant, :class => 'glyphicon glyphicon-eye-open' %></td>
                                 <td><%= link_to '', edit_restaurant_path(restaurant), :class => 'glyphicon glyphicon-edit', :style => 'color:#FFD600' %></td>
                                 <td><%= link_to '', restaurant, method: :delete, data: { confirm: 'Tem certeza que deseja desativar o restaurante?' }, :class => 'glyphicon glyphicon-ban-circle', :style => 'color:red' %></td>
