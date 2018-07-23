@@ -35,3 +35,14 @@ a:-webkit-any-link {
 .has-feedback .form-control{
     border-radius: 0;
 }
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.margin-home{
+    padding: 100px 0px 100px 0px;
+}
