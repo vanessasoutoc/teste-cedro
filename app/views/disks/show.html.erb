@@ -1,24 +1,30 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Restaurant:</strong>
-  <%= @disk.restaurant %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @disk.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @disk.price %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @disk.price %>
-</p>
-
-<%= link_to 'Edit', edit_disk_path(@disk) %> |
-<%= link_to 'Back', disks_path %>
+<section class="content-header">
+    <h1> <%= @disk.name %>
+        <small>Cód: <%= @disk.id %></small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to 'Prato', disks_path %></li>
+        <li class="active"><%= link_to 'Novo Prato', new_disk_path %></li>
+    </ol>
+</section>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <div class="box-header">
+                    <b> Código: </b> <%= @disk.id %>
+                    <div class="pull-right">
+                        <%= link_to '', edit_disk_path(@disk), class: 'glyphicon glyphicon-edit', :style => 'color:#FFD600' %>
+                        <%= link_to '', @disk, method: :delete, data: { confirm: 'Tem certeza que deseja desativar o restaurante?' }, :class => 'glyphicon glyphicon-ban-circle', :style => 'color:red' %>
+                    </div>
+                </div>
+                <div class="box-body pad">
+                    <p><b>Restaurante:  </b>  <%= @disk.restaurant.name %></p>
+                    <p><b>Prato:  </b>  <%= @disk.name %></p>
+                    <p><b>Preço:  </b>  <%= @disk.price %></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,6 +1,24 @@
-<h1>Editing Disk</h1>
+<section class="content-header">
+    <h1>
+        Editar Prato
+        <small>Edite o Prato</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href=""><i class="fa fa-dashboard"></i> Home</a></li>
+        <li><%= link_to 'Pratos', disks_path %></li>
+        <li class="active">Editar Prato</li>
+    </ol>
+</section>
 
-<%= render 'form', disk: @disk %>
-
-<%= link_to 'Show', @disk %> |
-<%= link_to 'Back', disks_path %>
+<section class="content">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="box box-danger">
+                <!-- /.box-header -->
+                <div class="box-body pad">
+                    <%= render 'form', disk: @disk %>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

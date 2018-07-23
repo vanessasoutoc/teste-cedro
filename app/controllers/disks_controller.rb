@@ -4,7 +4,7 @@ class DisksController < ApplicationController
   # GET /disks
   # GET /disks.json
   def index
-    @disks = Disk.all
+    @disks = Disk.without_deleted.order('name ASC').paginate(:page => params[:page], :per_page => 10)
   end
 
   # GET /disks/1
@@ -28,7 +28,7 @@ class DisksController < ApplicationController
 
     respond_to do |format|
       if @disk.save
-        format.html { redirect_to @disk, notice: 'Disk was successfully created.' }
+        format.html { redirect_to @disk, flash: {:success => 'Prato criado com sucesso.'} }
         format.json { render :show, status: :created, location: @disk }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class DisksController < ApplicationController
   def update
     respond_to do |format|
       if @disk.update(disk_params)
-        format.html { redirect_to @disk, notice: 'Disk was successfully updated.' }
+        format.html { redirect_to @disk, flash: {:success => 'Prato alterado com sucesso.' } }
         format.json { render :show, status: :ok, location: @disk }
       else
         format.html { render :edit }
@@ -56,7 +56,7 @@ class DisksController < ApplicationController
   def destroy
     @disk.destroy
     respond_to do |format|
-      format.html { redirect_to disks_url, notice: 'Disk was successfully destroyed.' }
+      format.html { redirect_to disks_url, flash: { :success => 'Prato desativado com sucesso.'} }
       format.json { head :no_content }
     end
   end
@@ -69,6 +69,6 @@ class DisksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def disk_params
-      params.require(:disk).permit(:restaurant_id, :name, :price, :price)
+      params.require(:disk).permit(:restaurant_id, :name, :price)
     end
 end

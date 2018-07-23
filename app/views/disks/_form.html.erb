@@ -1,37 +1,12 @@
-<%= form_with(model: disk, local: true) do |form| %>
-  <% if disk.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(disk.errors.count, "error") %> prohibited this disk from being saved:</h2>
+<%= bootstrap_form_for @disk do |form| %>
 
-      <ul>
-      <% disk.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
+<%= form.collection_select :restaurant_id, Restaurant.all, :id, :name, {prompt: 'Selecione um Restaurante'}, { :multiple => false } %>
 
-  <div class="field">
-    <%= form.label :restaurant_id %>
-    <%= form.text_field :restaurant_id, id: :disk_restaurant_id %>
-  </div>
+<%= form.text_field :name, id: :disk_name, label: 'Prato'  %>
 
-  <div class="field">
-    <%= form.label :name %>
-    <%= form.text_field :name, id: :disk_name %>
-  </div>
+<%= form.text_field :price, id: :disk_price, label: 'Preço' %>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :disk_price %>
-  </div>
+<%= form.submit 'Salvar',class: 'btn btn-primary pull-right' %>
 
-  <div class="field">
-    <%= form.label :price %>
-    <%= form.text_field :price, id: :disk_price %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+<%= link_to('Cancelar', disks_path, class: 'btn btn-default') %>

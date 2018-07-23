@@ -118,6 +118,23 @@
 
                             </ul>
                         </li>
+                        
+                        <li class="treeview  <%= active_class('/disks/new') %><%= active_class('/disks') %>">
+                            <a href="">
+                                <i class="fa fa-cutlery"></i>
+                                <span>Pratos</span>
+                                <span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>
+                            </a>
+                            <ul class="treeview-menu active">
+          
+                                <li><%= link_to('<i class="fa fa-circle-o"></i> Adicionar'.html_safe, new_disk_path) %></li>
+         
+                                <li><%= link_to('<i class="fa fa-circle-o"></i> Ver Todos'.html_safe, disks_path) %></li>
+
+                            </ul>
+                        </li>
 
                     </ul>
                 </section>

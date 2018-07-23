@@ -39,6 +39,8 @@ gem "paranoia", "~> 2.2"
 # gem api
 gem 'grape'
 
+# rspec
+gem 'rspec-rails'
 # data serialize
 gem 'grape-active_model_serializers'
 # cors unlock

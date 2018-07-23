@@ -1,7 +1,6 @@
 module API  
     module V1
         class Restaurants < Grape::API
-            #include Grape::Kaminari
             
             include API::V1::Defaults
 
@@ -29,13 +28,10 @@ restaurant"
                     Restaurant.where(id: permitted_params[:id]).without_deleted.first!
                 end
 
-                desc "Create a restaurant",
-                params: {
-                    "name" => {
-                        description: "Name of the restaurant",
-                        required: true,
-                        }
-                    }
+                desc "Create a restaurant"
+                params do 
+                    requires :name, type: String, desc: "Name of the Restaurant", message: 'Insira o nome do restaurante'
+                end
                 post "", root: :restaurant do
                     @restaurant = {
                         name: params[:name]

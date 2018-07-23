@@ -1,3 +1,12 @@
 class Disk < ApplicationRecord
-  belongs_to :restaurant
+
+    acts_as_paranoid
+
+    validates :name, presence: { message: 'Insira o nome do prato' }
+    validates :price, presence: { message: 'Insira o preço do prato' }
+    
+    
+    belongs_to :restaurant, -> {with_deleted}
+
+
 end
