@@ -5,6 +5,7 @@ module API
         class Base < Grape::API
 
             mount API::V1::Restaurants
+            mount API::V1::Disks
 
             add_swagger_documentation(
                 api_version: "v1",
