@@ -6,7 +6,7 @@ Link da aplicação hospedada no heroku:
 
 [teste-cedro](https://teste-cedro.herokuapp.com)
 
-[documentação](https://teste-cedro.herokuapp.com)
+[documentação](https://teste-cedro.herokuapp.com/documentation)
 
 Versões:
 
