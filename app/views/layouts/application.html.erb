@@ -112,9 +112,9 @@
                             </a>
                             <ul class="treeview-menu active">
           
-                                <li><%= link_to('<i class="fa fa-circle-o"></i> Adicionar'.html_safe, new_restaurant_path) %></li>
+                                <li class="<%= active_class('/restaurants/new') %>"><%= link_to('<i class="fa fa-circle-o"></i> Adicionar'.html_safe, new_restaurant_path) %></li>
          
-                                <li><%= link_to('<i class="fa fa-circle-o"></i> Ver Todos'.html_safe, restaurants_path) %></li>
+                                <li class="<%= active_class('/restaurants') %>"><%= link_to('<i class="fa fa-circle-o"></i> Ver Todos'.html_safe, restaurants_path) %></li>
 
                             </ul>
                         </li>
@@ -129,9 +129,9 @@
                             </a>
                             <ul class="treeview-menu active">
           
-                                <li><%= link_to('<i class="fa fa-circle-o"></i> Adicionar'.html_safe, new_disk_path) %></li>
+                                <li class="<%= active_class('/disks/new') %>"><%= link_to('<i class="fa fa-circle-o"></i> Adicionar'.html_safe, new_disk_path) %></li>
          
-                                <li><%= link_to('<i class="fa fa-circle-o"></i> Ver Todos'.html_safe, disks_path) %></li>
+                                <li class="<%= active_class('/disks') %>"><%= link_to('<i class="fa fa-circle-o"></i> Ver Todos'.html_safe, disks_path) %></li>
 
                             </ul>
                         </li>
